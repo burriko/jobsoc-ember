@@ -1,0 +1,21 @@
+
+{{model.title}} {{model.first_name}} {{model.surname}}
+
+<h3>Active Placements</h3>
+<ul>
+  {{#each model.placements as |placement|}}
+    {{log placement.placed}}
+    {{#if placement.active}}
+    <li>{{placement.assignment.title}} {{placement.active}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h3>Completed Placements</h3>
+<ul>
+  {{#each model.placements as |placement|}}
+    {{#unless placement.active}}
+    <li>{{placement.assignment.title}} {{placement.active}}</li>
+    {{/unless}}
+  {{/each}}
+</ul>
