@@ -3,13 +3,13 @@
 <h3>Active Placements</h3>
 <ul>
   {{#each activePlacements as |placement|}}
-    <li>{{placement.assignment.title}}</li>
+    <li>{{placement.assignment.title}} - {{format-date placement.placed}}</li>
   {{/each}}
 </ul>
 
 <h3>Completed Placements</h3>
 <ul>
   {{#each completedPlacements as |placement|}}
-    <li>{{placement.assignment.title}}</li>
+    <li>{{placement.assignment.title}} - {{format-date placement.placed}}</li>
   {{/each}}
 </ul>
