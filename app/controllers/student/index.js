@@ -6,12 +6,25 @@ export default Ember.Controller.extend({
     }.property('model.title', 'model.firstName', 'model.surname'),
 
     activePlacements: function() {
-        return this.get('model.placements').filterBy('active');
+        var activePlacements = this.get('model.placements').filterBy('active');
+        if (!Array.isArray(activePlacements)) {
+            return activePlacements;
+        }
+        return activePlacements.sort(function(a, b) {
+            return moment(a.get('placed')).diff(b.get('placed'));
+        });
     }.property('model.placements.@each.active'),
 
     completedPlacements: function() {
-        return this.get('model.placements').filter(function(placement) {
-            return placement.active != null;
+        var completedPlacements = this.get('model.placements')
+            .filter(function(placement) {
+                return placement.active != null;
+            });
+        if (!Array.isArray(completedPlacements)) {
+            return completedPlacements;
+        }
+        return completedPlacements.sort(function(a, b) {
+            return moment(b.get('placed')).diff(a.get('placed'));
         });
     }.property('model.placements.@each.active'),
 });
