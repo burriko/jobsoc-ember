@@ -3,7 +3,7 @@
 <h3>Active Placements</h3>
 <ul>
   {{#each activePlacements as |placement|}}
-    <li>{{placement.assignment.title}} - {{format-date placement.placed}}</li>
+    <li>{{#link-to "placements" placement}}{{placement.assignment.title}} - {{format-date placement.placed}}{{/link-to}}</li>
   {{/each}}
 </ul>
 
@@ -13,3 +13,5 @@
     <li>{{placement.assignment.title}} - {{format-date placement.placed}}</li>
   {{/each}}
 </ul>
+
+{{outlet}}
