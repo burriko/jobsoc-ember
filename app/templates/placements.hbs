@@ -2,15 +2,23 @@
 <p>{{#link-to 'student'}}&lt;Back to placements{{/link-to}}</p>
 <h3>{{model.assignment.title}}</h3>
 
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Pay</th>
-    </tr>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Minutes</th>
+            <th>Pay</th>
+        </tr>
+    </thead>
+    <tbody>
 {{#each model.shifts as |shift|}}
-    <tr>
-        <td>{{format-date shift.date_worked}}</td>
-        <td>{{shift.pay}}</td>
-    </tr>
+        <tr>
+            <td>{{format-date shift.date_worked}}</td>
+            <td>{{shift.hours}}</td>
+            <td>{{shift.minutes}}</td>
+            <td>{{shift.pay}}</td>
+        </tr>
 {{/each}}
+    </tbody>
 </table>
