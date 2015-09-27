@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
             return activePlacements;
         }
         return activePlacements.sort(function(a, b) {
-            return moment(a.get('placed')).diff(b.get('placed'));
+            return moment(b.get('placed')).diff(a.get('placed'));
         });
     }.property('model.placements.@each.active'),
 
