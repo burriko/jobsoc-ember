@@ -1,3 +1,9 @@
 {{outlet}}
 <p>{{#link-to 'student'}}&lt;Back to placements{{/link-to}}</p>
 <h3>{{model.assignment.title}}</h3>
+
+<ul>
+{{#each model.shifts as |shift|}}
+    <li>{{shift.pay}}</li>
+{{/each}}
+</ul>

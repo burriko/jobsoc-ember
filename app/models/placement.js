@@ -5,4 +5,5 @@ export default DS.Model.extend({
     active: DS.attr(),
     student: DS.belongsTo('student'),
     assignment: DS.belongsTo('assignment'),
+    shifts: DS.hasMany('shift'),
 });
